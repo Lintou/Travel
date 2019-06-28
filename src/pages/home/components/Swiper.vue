@@ -21,7 +21,7 @@ export default {
       },
       swiperList: [{
         id: '0001',
-        imgUrl:'https://hbimg.huabanimg.com/f83c242c6987e11073ca9badeb3cfcba3b3a4487297ddf-PIwfmx_fw658'
+        imgUrl: 'https://hbimg.huabanimg.com/f83c242c6987e11073ca9badeb3cfcba3b3a4487297ddf-PIwfmx_fw658'
       },
       {
         id: '0002',
@@ -33,12 +33,12 @@ export default {
 </script>
 <style lang="stylus" scoped>
   .wrapper >>> .swiper-pagination-bullet-active
-    background: #ffffff
+    background: #FFB6C1
   .wrapper
     overflow: hidden
     width: 100%
     height: 0
-    padding-bottom: 31.25%  
+    padding-bottom: 31.25%
     background: #eee
     .swiper-img
       width: 100%
