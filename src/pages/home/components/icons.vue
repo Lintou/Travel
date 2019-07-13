@@ -1,6 +1,6 @@
 <template>
   <div class='icons'>
-    <swiper :options='swiperOption'>
+    <swiper :options="swiperOption">
       <swiper-slide v-for='(page, index) of pages' :key='index'>
         <div class='icon'
              v-for="item of page"
@@ -18,51 +18,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry2_2.png',
-        desc: '222日游一日游一日游'
-      }, {
-        id: '0002',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry3.png',
-        desc: '自驾游'
-      }, {
-        id: '0003',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry5.png',
-        desc: '跟团游'
-      }, {
-        id: '0004',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry4.png',
-        desc: '景点门票'
-      }, {
-        id: '0005',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry1.png',
-        desc: '景+酒'
-      }, {
-        id: '0006',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry5.png',
-        desc: '跟团游'
-      }, {
-        id: '0007',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry5.png',
-        desc: '跟团游'
-      }, {
-        id: '0008',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry5.png',
-        desc: '跟团游'
-      }, {
-        id: '0009',
-        imgUrl: '//s.qunarzz.com/vacation_react/around/entry5.png',
-        desc: '跟团游'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
