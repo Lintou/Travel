@@ -21,12 +21,12 @@ export default {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
-      },
+      }
     }
   },
   computed: {
     showSwiper () {
-      return this.list.length;
+      return this.list.length
     }
   }
 }
