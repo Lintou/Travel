@@ -5,7 +5,7 @@
     </div>
     <div class="search-content" ref='search' v-show="keyword">
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+        <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">{{item.name}}</li>
         <li class="search-item border-bottom" v-show="hasNoData">not found</li>
       </ul>
     </div>
@@ -26,6 +26,12 @@ export default {
       timer: null
     }
   },
+  methods: {
+    handleCityClick (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
+    }
+  },
   computed: {
     hasNoData () {
       return !this.list.length
@@ -33,10 +39,10 @@ export default {
   },
   watch: {
     keyword () {
-      if(this.timer) {
+      if (this.timer) {
         clearTimeout(this.timer)
       }
-      if(!this.keyword){
+      if (!this.keyword) {
         this.list = []
         return
       }
@@ -44,12 +50,12 @@ export default {
         const result = []
         for (let i in this.cities) {
           this.cities[i].forEach((value) => {
-            if(value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
+            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
               result.push(value)
             }
-        })
-      }
-      this.list = result
+          })
+        }
+        this.list = result
       }, 100)
     }
   },
